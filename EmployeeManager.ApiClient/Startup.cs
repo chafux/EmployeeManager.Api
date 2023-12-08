@@ -35,11 +35,9 @@ namespace EmployeeManager.ApiClient
         {
             services.AddControllersWithViews();
 
-            services.AddDbContext<AppIdentityDbContext>(options =>
-        options.UseSqlServer(this.config.GetConnectionString("AppDb")));
+            services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(this.config.GetConnectionString("AppDb")));
 
-            services.AddIdentity<AppIdentityUser, AppIdentityRole>()
-                    .AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddIdentity<AppIdentityUser, AppIdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
 
             services.ConfigureApplicationCookie(opt =>
             {

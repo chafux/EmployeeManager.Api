@@ -57,7 +57,7 @@ namespace EmployeeManager.ApiClient.Controllers
         public async Task<IActionResult> ListAsync()
         {
             HttpResponseMessage response = await client.GetAsync(employeesApiUrl);
-            string stringData =await response.Content.ReadAsStringAsync();
+            string stringData = await response.Content.ReadAsStringAsync();
 
             var options = new JsonSerializerOptions
             {
@@ -65,7 +65,7 @@ namespace EmployeeManager.ApiClient.Controllers
             };
 
             
-            List<Employee> data = JsonSerializer.Deserialize<List<Employee>>(stringData, options);
+            List<Employee> data =  JsonSerializer.Deserialize<List<Employee>>(stringData, options);
 
             return View(data);
         }
